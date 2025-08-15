@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <i class="fa-solid fa-spa"></i>
+        <h1>Serenity Spa</h1>
+      </div>
+      <!-- <div class="hamburger" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div> -->
+      <!-- Hamburger Button -->
+<div id="hamburger" class="hamburger" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<nav id="nav-menu">
+  <ul>
+    <li><a href="#home" onclick="closeMenu()">Home</a></li>
+    <li><a href="#about" onclick="closeMenu()">About Us</a></li>
+    <li><a href="#services" onclick="closeMenu()">Services</a></li>
+    <li><a href="#pricing" onclick="closeMenu()">Pricing</a></li>
+    <li><a href="#gallery" onclick="closeMenu()">Gallery</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    <li><a href="#" onclick="openModal(); closeMenu()"><i class="fa-solid fa-user"></i> Login</a></li>
+    <a href="#book" class="cta-button">Book Appointment</a>
+  </ul>
+</nav>
+
+      
+      <!-- Modal -->
+      <div class="modal" id="loginModal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+          <h2 id="formTitle">Login</h2>
+          <input type="text" placeholder="Email or Username" id="userInput">
+          <input type="password" placeholder="Password" id="passInput">
+          <button onclick="submitForm()">Login</button>
+          <div class="switch-link" onclick="toggleForm()">Don't have an account? Sign Up</div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Experience Ultimate Relaxation</h1>
+      <p>Indulge in our premium spa treatments designed to rejuvenate your body, mind, and spirit in a tranquil
+        oasis of calm.</p>
+      <a href="#services" class="cta-button">Discover Our Services</a>
+
+    </div>
+  </section>
+  <!-- About us -->
+  <section id="about">
+    <div class="container-one">
+
+      <div class="section-header">
+        <h2>About Us</h2>
+        <p>Discover our story and commitment to your wellness journey.We offer a wide range of services
+          including haircuts, styling, coloring, facials, manicures,
+          pedicures, waxing, and makeup application.We tailor our services to each client's unique needs and
+          preferences.Our team consists of highly skilled and experienced stylists and beauticians.We use only
+          the finest professional products to ensure the best results.Our salon provides a tranquil and
+          welcoming atmosphere where clients can relax and be pampered. We strive to create a positive and
+          memorable experience for every client.we believe in enhancing natural beauty through personalized
+          care and expert services. We offer a wide range of treatments in a relaxing environment."
+          "We are passionate about providing our clients with a pampering experience that leaves them feeling
+          refreshed and confident. Visit us for a complimentary consultation!"
+          "Looking for a new look? Our team of skilled stylists can help you achieve your desired style,
+          whether it's a fresh haircut, vibrant color, or flawless makeup."
+        </p>
+      </div>
+      <div class="image">
+
+      </div>
+    </div>
+    <div class="mission">
+      <h2>Our Mission and Vision</h2>
+      <p>Our mission is to empower individuals to feel beautiful, confident, and cared for—inside and out. We aim
+        to provide exceptional beauty and spa services using the finest products, the latest techniques, and a
+        warm, welcoming environment. Our goal is not only to enhance appearances but also to nurture well-being
+        and promote self-love.To be a trusted destination where beauty and wellness harmonize. We envision a
+        space where every client feels valued, pampered, and inspired to embrace their unique beauty. Through
+        innovation, education, and heartfelt service, we strive to redefine the standards of beauty care and
+        holistic spa experiences.</p>
+    </div>
+    <div class="title">
+      <h1>Our Team</h1>
+    </div>
+    <div class="team">
+
+      <div class="team-mates">
+        <div class="img-1 img">
+
+        </div>
+        <h2>Anita Sharma – Senior Skin Therapist</h2>
+        <p>
+
+          With over 10 years of experience in advanced skincare, Anita specializes in facials, skin
+          rejuvenation treatments, and dermal therapies. Her calm demeanor and deep knowledge make every
+          session soothing and transformative.
+        </p>
+      </div>
+      <div class="team-mates">
+        <div class="img-2  img">
+
+        </div>
+        <h2>Priya Mehta – Makeup & Bridal Specialist</h2>
+        <p>
+
+          Priya brings 8 years of creative experience in professional makeup, bridal makeovers, and event styling.
+          Her eye for detail and passion for beauty ensure every bride shines with confidence on her big day.
+        </p>
+      </div>
+      <div class="team-mates">
+        <div class="img-3  img">
+
+        </div>
+        <h2>Neha Kapoor – Hair Stylist & Color Expert</h2>
+
+        <p>
+
+          With 9 years in professional haircare, Neha is a master in haircuts, coloring, keratin treatments, and
+          styling trends. She believes hair is an art—and she crafts each look to match your personality.
+        </p>
+      </div>
+      <div class="team-mates">
+        <div class="img-4  img">
+
+        </div>
+        <h2>Riya Sen – Spa & Body Therapy Expert</h2>
+        <p>
+
+
+          Riya has 7 years of hands-on spa experience, specializing in body massages, aromatherapy, scrubs, and
+          detox treatments. Her healing touch and holistic approach make every session a journey of renewal.
+        </p>
+      </div>
+
+
+    </div>
+  </section>
+  <!-- Services -->
+  <section class="services" id="services">
+    <h1>Our Services</h1>
+
+    <div class="gallery">
+      <div class="card">
+        <img src="https://3.imimg.com/data3/FI/WU/MY-2799968/advanced-facials-500x500.jpg" alt="Image 1">
+        <div class="note">
+          <h3>facial</h3>
+          <p>A facial that revitalizes your skin, restores glow, and relaxes your senses.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://image.myupchar.com/17480/webp/body-polishing-home-made-kit.webp" alt="Image 2">
+
+        <div class="note">
+          <h3>Body Polishing</h3>
+          <p>A body polishing treatment that exfoliates, hydrates, and leaves your skin silky smooth and glowing.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgsiyU9rBdC3Lph67vgt_LBxEDjG8GnWaNcA&s"
+          alt="Image 3">
+
+        <div class="note">
+          <h3>Waxing</h3>
+          <p>A gentle waxing service for smooth, flawless, and hair-free skin with a silky touch.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://envi.in/wp-content/uploads/2022/10/hair-spa-treatment.webp" alt="Image 4">
+
+        <div class="note">
+          <h3>Hair Spa and Styling</h3>
+          <p>Professional hair styling to enhance your look with elegance and confidence.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="https://content.jdmagicbox.com/v2/comp/alappuzha/x9/0477px477.x477.230101005517.d6x9/catalogue/retreet-beauty-parlour-and-tattoo-centre-kayamkulam-alappuzha-beauty-parlours-fvu2uc72nd.jpg"
+          alt="Image 5">
+
+        <div class="note">
+          <h3>Bridal Makeup</h3>
+          <p>Flawless bridal makeup to make you shine with elegance on your special day.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.little-jasmine.com/wp-content/uploads/2017/01/shutterstock_132004793-1200x1238.jpg"
+          alt="Image 5">
+
+        <div class="note">
+          <h3>Manicure and Pedicure</h3>
+          <p>Pamper your hands and feet with a soothing manicure and pedicure for soft, beautiful, and polished nails.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- book appointment -->
+  <section id="book">
+    <div class="book">
+      <div class="book-img">
+        <h2 style="color: white;">Call Us Toll-Free: 1800 123 1952</h2>
+      </div>
+      <div class="appointment-container">
+        <h2>Book Appointment</h2>
+        <form>
+          <input type="text" placeholder="Your Name *" required>
+          <input type="email" placeholder="Email Address *" required>
+          <input type="tel" placeholder="Phone Number *" required>
+          <input type="text" placeholder="City *" required>
+
+          <select required>
+            <option value="">Select Service *</option>
+            <option value="Facial">Facial</option>
+            <option value="Body Polishing">Body Polishing</option>
+            <option value="Waxing">Waxing</option>
+            <option value="Hair Spa & Styling">Hair Spa & Styling</option>
+            <option value="Bridal Makeup">Bridal Makeup</option>
+            <option value="Manicure & Pedicure">Manicure & Pedicure</option>
+          </select>
+
+          <input type="datetime-local" required>
+
+          <select>
+            <option value="">Gender Preference (Optional)</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="No Preference">Prefer not to say</option>
+          </select>
+
+          <textarea placeholder="Special Requests or Notes"></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+  </section>
+  <!-- pricing section -->
+  <section class="pricing-section" id="pricing">
+    <div class="pricing-header">
+      <h2>Our Pricing</h2>
+      <p>Affordable luxury tailored for you</p>
+    </div>
+
+    <div class="pricing-cards">
+      <!-- Individual Services Card -->
+      <div class="pricing-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwOaZ-GzJGjz9w9vCHxjq_FB0-4HYgo9JH_w&s"
+          alt="Individual Services" />
+        <h3>Individual Services</h3>
+        <ul>
+          <li>Facial - ₹500</li>
+          <li>Hair Spa - ₹800</li>
+          <li>Massage - ₹1000</li>
+        </ul>
+        <button>View More</button>
+      </div>
+
+      <!-- Combo Offers Card -->
+      <div class="pricing-card">
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/5c3f3dfd4cde7a924c0d7a50/49f4d2e0-9e2d-4d4b-ae14-d6530de2b025/Andaz-Munich-Spa-Awaylands-Amy-Treatment.jpg"
+          alt="Combo Offers" />
+        <h3>Combo Offers</h3>
+        <ul>
+          <li>Facial + Massage - ₹1200</li>
+          <li>Hair + Pedicure - ₹1500</li>
+          <li>Full Body Care - ₹2500</li>
+        </ul>
+        <button>View More</button>
+      </div>
+
+      <!-- Membership Packages Card -->
+      <div class="pricing-card">
+        <img src="https://edelweissspa.net/wp-content/uploads/2014/05/facial_banner1.jpg" alt="Membership Packages" />
+        <h3>Membership Packages</h3>
+        <ul>
+          <li>Silver - ₹999/month</li>
+          <li>Gold - ₹1499/month</li>
+          <li>Platinum - ₹1999/month</li>
+        </ul>
+        <button>View More</button>
+      </div>
+    </div>
+  </section>
+  <!-- testimonials -->
+  <section class="testimonials-section" id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonials-container">
+
+      <div class="testimonial-card">
+        <div class="before-after-images">
+          <img
+            src="https://media.istockphoto.com/id/1356421760/photo/woman-before-and-after-makeup-the-concept-of-transformation-beauty-after-applying-makeup-with.jpg?s=612x612&w=0&k=20&c=Goi0SQyphN3sjqpBY9hSVUd8cf7TFRzxkDx1aHqMnZ0="
+            alt="Before">
+          <!-- <img src="after1.jpg" alt="After"> -->
+        </div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p>"Facial left my skin glowing and smooth. Totally satisfied with the result!"</p>
+        <h4>— Ananya S.</h4>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="before-after-images">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-bWAbLBp3zYZHOwcWs3iq1N_W5hu9RUgBNw&s"
+            alt="Before">
+          <!-- <img src="after2.jpg" alt="After"> -->
+        </div>
+        <div class="testimonial-stars">★★★★☆</div>
+        <p>"The bridal makeover was stunning. I felt confident and beautiful!"</p>
+        <h4>— Meera R.</h4>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="before-after-images">
+          <img src="https://www.shutterstock.com/image-photo/before-after-nail-extension-natural-600nw-1938552529.jpg"
+            alt="Before">xc
+        </div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p>"Manicure & pedicure service was excellent. My hands and feet look amazing."</p>
+        <h4>— Kavitha P.</h4>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="before-after-images">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOWEKKE83rQ5ccSBQee8CR1rnyN9NppPdRW54rvopB2anPk16O6--t89QP6kQ5PLU751Y&usqp=CAU"
+            alt="Before">
+
+        </div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p>"Hair spa gave my hair a new life. It feels soft, shiny, and healthy!"</p>
+        <h4>— Shruti V.</h4>
+      </div>
+
+    </div>
+  </section>
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h4>Address</h4>
+              <p>123 Serenity Spa Avenue<br>Hyderabad City,10001</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div>
+              <h4>Phone</h4>
+              <p>Main: (123) 456-7890<br>Emergency: (123) 456-7891</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <p>info@Serenityspa.com<br>support@Serenityspa.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div>
+              <h4>Working Hours</h4>
+              <p>Monday-Friday: 8:00 AM - 8:00 PM<br>Saturday: 9:00 AM - 5:00 PM<br>Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" name="contact-name" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" name="contact-email" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <input type="text" id="contact-subject" name="contact-subject" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="contact-message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="cta-button">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <!-- <i class="fas fa-map-marked-alt"></i> Google Maps Location -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.5046184707867!2d78.40827237391237!3d17.435545483459887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91492f732dcf%3A0x9ca2a926edeae7fd!2sSerenity%20Spa%20and%20Salon!5e0!3m2!1sen!2sin!4v1752296381312!5m2!1sen!2sin"
+          width="1200px" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+  <section class="gallery-section">
+    <h2 class="gallery-title">Our Spa Gallery</h2>
+
+    <!-- Row 1 -->
+    <div class="gallery-row">
+      <div class="gallery-track">
+        <img
+          src="https://media.istockphoto.com/id/1155413611/photo/modern-interior-design-of-spa-sauna-concept-of-fine-living-relaxation-3d-rendering.jpg?s=612x612&w=0&k=20&c=APkwMRa_SNmnxMYMyVINUDahJF6TXdqjFqY99Z9lJMw="
+          alt="Spa Image 1">
+        <img
+          src="https://previews.123rf.com/images/dotshock/dotshock1307/dotshock130700041/20592161-spa-beauty-and-massage-center-indoors-outdoor.jpg"
+          alt="Spa Image 2">
+        <img src="https://spasalon.us/blog/ssu-content/uploads/2023/06/day-spa.jpg" alt="Spa Image 3">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr4znpAs5GpTdeMmwToR64AqDZsrOsSVoHcIYXt7Qa095u0tDNeleXV5FselECnjAapIU&usqp=CAU"
+          alt="Spa Image 4">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/31825295424073.5e98551483ca4.jpg"
+          alt="Spa Image 5">
+        <!-- Duplicate for seamless scroll -->
+        <img
+          src="https://media.istockphoto.com/id/1155413611/photo/modern-interior-design-of-spa-sauna-concept-of-fine-living-relaxation-3d-rendering.jpg?s=612x612&w=0&k=20&c=APkwMRa_SNmnxMYMyVINUDahJF6TXdqjFqY99Z9lJMw="
+          alt="Spa Image 1">
+        <img
+          src="https://previews.123rf.com/images/dotshock/dotshock1307/dotshock130700041/20592161-spa-beauty-and-massage-center-indoors-outdoor.jpg"
+          alt="Spa Image 2">
+        <img src="https://spasalon.us/blog/ssu-content/uploads/2023/06/day-spa.jpg" alt="Spa Image 3">
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="gallery-row">
+      <div class="gallery-track">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6axj4qUM8GV6LTgzIEmRV4HT4jOUZvXDuevl9fDQGJ5soJqIZ1zHD17p-owqNGS6CmW8&usqp=CAU"
+          alt="Spa Image 6">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh885qcryFKo7siFqmam5Y4fr844viLDygAg&s"
+          alt="Spa Image 7">
+        <img src="https://www.shutterstock.com/image-photo/beautician-team-salon-interior-three-260nw-676186648.jpg"
+          alt="Spa Image 8">
+        <img src="https://www.shutterstock.com/image-photo/group-girlfriends-manicure-beauty-salon-260nw-1595581360.jpg"
+          alt="Spa Image 9">
+        <img src="https://d2jkr899rqgh58.cloudfront.net/images/b1a12c05-26df-4815-a1f6-b751fbe49bfd.jpg"
+          alt="Spa Image 10">
+        <!-- Duplicate for seamless scroll -->
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6axj4qUM8GV6LTgzIEmRV4HT4jOUZvXDuevl9fDQGJ5soJqIZ1zHD17p-owqNGS6CmW8&usqp=CAU"
+          alt="Spa Image 6">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh885qcryFKo7siFqmam5Y4fr844viLDygAg&s"
+          alt="Spa Image 7">
+        <img
+          src="https://skydecengineers.com/wp-content/uploads/2025/02/Industry-Standard-Beauty-Salon-Design-Standards.jpg"
+          alt="Spa Image 8">
+      </div>
+    </div>
+  </section>
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>What services does Serenity Spa offer?</h3>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="faq-answer">
+        <p>We offer facials, massages, body treatments, manicures, pedicures, and bridal packages tailored to your
+          needs.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>Do I need to book an appointment in advance?</h3>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="faq-answer">
+        <p>Yes, we recommend booking in advance to ensure availability and preferred time slots.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>What products do you use in treatments?</h3>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="faq-answer">
+        <p>We use premium, natural, and skin-friendly spa products to give you the best results and relaxation.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>Can I buy gift vouchers?</h3>
+        <button class="toggle-btn">+</button>
+      </div>
+      <div class="faq-answer">
+        <p>Absolutely! Gift vouchers are available and make the perfect present for your loved ones.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Serenity Spa</h3>
+          <p>Indulge in our premium spa treatments designed to rejuvenate your body, mind, and spirit in a tranquil
+            oasis of calm.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Our Service</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#book">Appointments</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="#">Facial Treatment</a></li>
+            <li><a href="#">Body Polishing</a></li>
+            <li><a href="#">Waxing & Threading</a></li>
+            <li><a href="#">Hair Spa & Styling</a></li>
+            <li><a href="#">Manicure</a></li>
+            <li><a href="#">Pedicure</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Info</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-map-marker-alt"></i> 123 Beauty Spa Colony, City 10001</li>
+            <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+            <li><i class="fas fa-envelope"></i> info@Serenityspa.com</li>
+            <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 8:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 Serenity Spa. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
